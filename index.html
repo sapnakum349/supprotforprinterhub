@@ -1,0 +1,641 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Printer Hub | Printer Support Center</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f5f8fc;
+    color: #263445;
+}
+
+header {
+    background: white;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 12px #0001;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #0879ca;
+}
+
+.logo span {
+    color: #222;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+nav a:hover {
+    color: #0879ca;
+}
+
+.hero {
+    background: linear-gradient(120deg,#063b70,#0989d8);
+    color: white;
+    padding: 100px 8%;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.search-box {
+    max-width: 600px;
+    display: flex;
+    margin: auto;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 17px;
+    border: none;
+    outline: none;
+    border-radius: 6px 0 0 6px;
+}
+
+.search-box button {
+    background: #ffb900;
+    border: none;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 0 6px 6px 0;
+}
+
+.btn {
+    display: inline-block;
+    background: #0879ca;
+    color: white;
+    padding: 13px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btn:hover {
+    background: #045a9c;
+}
+
+section {
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 34px;
+    color: #063b70;
+    margin-bottom: 15px;
+}
+
+.section-text {
+    color: #777;
+    margin-bottom: 40px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 30px 22px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px #0000000c;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 8px 25px #0002;
+}
+
+.icon {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: #063b70;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #777;
+    line-height: 1.7;
+}
+
+.about {
+    background: #eaf4fd;
+}
+
+.about-content {
+    max-width: 850px;
+    margin: auto;
+    line-height: 1.9;
+    color: #555;
+}
+
+.brands .card {
+    padding: 35px 15px;
+}
+
+.brand-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0879ca;
+    margin-bottom: 15px;
+}
+
+.troubleshooting {
+    background: #fff;
+}
+
+.problem {
+    max-width: 850px;
+    margin: auto;
+    text-align: left;
+}
+
+.problem div {
+    background: #f0f6fc;
+    padding: 20px;
+    margin: 12px 0;
+    border-radius: 7px;
+}
+
+.problem h3 {
+    color: #0879ca;
+    margin-bottom: 8px;
+}
+
+.steps {
+    background: #eaf4fd;
+}
+
+.faq {
+    max-width: 850px;
+    margin: auto;
+    text-align: left;
+}
+
+details {
+    background: white;
+    margin: 12px 0;
+    padding: 20px;
+    border-radius: 7px;
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+    color: #063b70;
+}
+
+details p {
+    margin-top: 15px;
+    color: #666;
+    line-height: 1.7;
+}
+
+.contact {
+    background: #063b70;
+    color: white;
+}
+
+.contact .section-title {
+    color: white;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: auto;
+}
+
+.contact input,
+.contact select,
+.contact textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 9px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+.contact textarea {
+    height: 130px;
+    resize: vertical;
+}
+
+.contact button {
+    width: 100%;
+    background: #ffb900;
+    color: #222;
+    font-weight: bold;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+#message {
+    margin-top: 15px;
+}
+
+footer {
+    background: #052b4e;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    line-height: 2;
+}
+
+@media(max-width:768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 7px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero {
+        padding: 70px 5%;
+    }
+
+    .search-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-box input,
+    .search-box button {
+        border-radius: 5px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">🖨 Printer<span>Hub</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#brands">Brands</a>
+        <a href="#support">Support</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="home">
+    <h1>Welcome to Printer Hub</h1>
+
+    <p>
+        Your Complete Printer Support Center.<br>
+        Get printer setup, driver information and troubleshooting help.
+    </p>
+
+    <div class="search-box">
+        <input type="text" id="printerModel"
+        placeholder="Enter printer model number...">
+
+        <button onclick="searchPrinter()">Search</button>
+    </div>
+
+    <p id="searchResult"></p>
+
+    <a href="#services" class="btn">Explore Services</a>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+    <h2 class="section-title">Our Services</h2>
+
+    <p class="section-text">
+        Everything you need for your printer.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🖨️</div>
+            <h3>Printer Setup</h3>
+            <p>Get step-by-step instructions for setting up your printer.</p>
+            <a href="#support" class="btn">Learn More</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">📥</div>
+            <h3>Driver Support</h3>
+            <p>Find official printer driver and software download pages.</p>
+            <a href="#brands" class="btn">Explore</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔧</div>
+            <h3>Printer Repair Help</h3>
+            <p>Find solutions to common printer errors and problems.</p>
+            <a href="#support" class="btn">Get Help</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">📶</div>
+            <h3>Wi-Fi Connection</h3>
+            <p>Learn how to connect your printer to a wireless network.</p>
+            <a href="#support" class="btn">Learn More</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+    <h2 class="section-title">About Printer Hub</h2>
+
+    <div class="about-content">
+        <p>
+            Printer Hub is an independent printer information and support
+            website designed to help users with printer installation,
+            driver information, wireless connectivity and troubleshooting.
+            Our goal is to make printer support simple and easy for everyone.
+        </p>
+    </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands" id="brands">
+    <h2 class="section-title">Select Your Printer Brand</h2>
+
+    <p class="section-text">
+        Visit the official manufacturer support website.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🖨️</div>
+            <div class="brand-name">HP</div>
+            <p>HP printer drivers, software and support.</p>
+            <a href="https://support.hp.com/drivers"
+            target="_blank" class="btn">Official HP Support</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🖨️</div>
+            <div class="brand-name">Canon</div>
+            <p>Canon printer software and installation help.</p>
+            <a href="https://www.canon-europe.com/support/"
+            target="_blank" class="btn">Official Canon Support</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🖨️</div>
+            <div class="brand-name">Epson</div>
+            <p>Epson printer drivers and product support.</p>
+            <a href="https://www.epson.com/support"
+            target="_blank" class="btn">Official Epson Support</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🖨️</div>
+            <div class="brand-name">Brother</div>
+            <p>Brother printer drivers and manuals.</p>
+            <a href="https://support.brother.com/"
+            target="_blank" class="btn">Official Brother Support</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- TROUBLESHOOTING -->
+<section class="troubleshooting" id="support">
+    <h2 class="section-title">Printer Troubleshooting</h2>
+
+    <p class="section-text">
+        Find help for common printer problems.
+    </p>
+
+    <div class="problem">
+
+        <div>
+            <h3>1. Printer Offline</h3>
+            <p>Check the printer power, USB cable or Wi-Fi connection.
+            Make sure the correct printer is selected.</p>
+        </div>
+
+        <div>
+            <h3>2. Printer Not Printing</h3>
+            <p>Check paper, ink or toner levels and clear the print queue.</p>
+        </div>
+
+        <div>
+            <h3>3. Paper Jam</h3>
+            <p>Follow the printer manual to safely remove stuck paper.</p>
+        </div>
+
+        <div>
+            <h3>4. Driver Installation Problem</h3>
+            <p>Download the correct driver for your printer model and
+            operating system from the official manufacturer website.</p>
+        </div>
+
+        <div>
+            <h3>5. Wi-Fi Connection Problem</h3>
+            <p>Restart your printer and router, then reconnect the
+            printer to your wireless network.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- SETUP STEPS -->
+<section class="steps">
+    <h2 class="section-title">How to Setup Your Printer</h2>
+
+    <div class="problem">
+        <div>Step 1: Unpack your printer and connect the power cable.</div>
+        <div>Step 2: Install ink cartridges or toner and load paper.</div>
+        <div>Step 3: Connect your printer using USB or Wi-Fi.</div>
+        <div>Step 4: Download the correct driver from the official website.</div>
+        <div>Step 5: Print a test page to check the connection.</div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+
+    <div class="faq">
+
+        <details>
+            <summary>How can I install my printer?</summary>
+            <p>Connect your printer, visit the official manufacturer's
+            website, download the compatible driver and follow
+            the installation instructions.</p>
+        </details>
+
+        <details>
+            <summary>Why is my printer showing offline?</summary>
+            <p>Check the power and network connection. Also check
+            printer settings on your computer.</p>
+        </details>
+
+        <details>
+            <summary>How can I download printer drivers?</summary>
+            <p>Select your printer manufacturer above and visit its
+            official support website.</p>
+        </details>
+
+        <details>
+            <summary>How do I connect my printer to Wi-Fi?</summary>
+            <p>Open wireless settings on your printer, select your
+            Wi-Fi network and enter your password.</p>
+        </details>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <h2 class="section-title">Contact Printer Hub</h2>
+
+    <p class="section-text" style="color:white">
+        Have a printer question? Send us a message.
+    </p>
+
+    <form id="contactForm">
+
+        <input type="text" placeholder="Your Full Name" required>
+
+        <input type="email" placeholder="Your Email Address" required>
+
+        <input type="text" placeholder="Printer Brand and Model">
+
+        <select required>
+            <option value="">Select Your Problem</option>
+            <option>Printer Setup</option>
+            <option>Driver Installation</option>
+            <option>Printer Offline</option>
+            <option>Paper Jam</option>
+            <option>Wi-Fi Connection</option>
+            <option>Other</option>
+        </select>
+
+        <textarea placeholder="Describe your printer problem..."
+        required></textarea>
+
+        <button type="submit">Submit Request</button>
+
+        <p id="message"></p>
+
+    </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h2>🖨 Printer Hub</h2>
+
+    <p>Your Independent Printer Information & Support Center</p>
+
+    <p>
+        <a href="#home" style="color:white">Home</a> |
+        <a href="#services" style="color:white">Services</a> |
+        <a href="#contact" style="color:white">Contact</a>
+    </p>
+
+    <p>© 2026 Printer Hub. All Rights Reserved.</p>
+
+    <p>Independent website. Not affiliated with printer manufacturers.</p>
+</footer>
+
+<script>
+
+// Printer Search
+function searchPrinter() {
+
+    let model = document.getElementById("printerModel").value.trim();
+
+    let result = document.getElementById("searchResult");
+
+    if(model === "") {
+        result.innerHTML = "Please enter your printer model.";
+    } else {
+        result.innerHTML =
+        "Printer model: " + model +
+        "<br>Please select your printer brand below to find official support.";
+    }
+}
+
+// Contact Form
+document.getElementById("contactForm").addEventListener("submit",
+function(event) {
+
+    event.preventDefault();
+
+    document.getElementById("message").innerHTML =
+    "Thank you! Your demo request has been submitted.";
+
+    this.reset();
+
+});
+
+</script>
+
+</body>
+</html>
